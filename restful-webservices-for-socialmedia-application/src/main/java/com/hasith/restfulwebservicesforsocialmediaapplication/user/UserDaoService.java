@@ -27,4 +27,10 @@ public class UserDaoService {
         return users.stream().filter(user -> user.getId()  ==  Integer.parseInt(id)).findFirst().orElse(null);
     }
 
+    public User saveUser(User user){
+        user.setId(++id);
+        users.add(user);
+        return user;
+    }
+
 }
