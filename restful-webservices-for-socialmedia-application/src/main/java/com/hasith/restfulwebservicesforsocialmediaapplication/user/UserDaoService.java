@@ -10,15 +10,21 @@ import java.util.List;
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
 
+    private static Integer id=0;
+
     static {
-        users.add(new User(1, "Adan", LocalDate.now().minusYears(30)));
-        users.add(new User(1, "Ewa", LocalDate.now().minusYears(30)));
-        users.add(new User(1, "Hasith", LocalDate.now().minusYears(22)));
-        users.add(new User(1, "Malshan", LocalDate.now().minusYears(22)));
+        users.add(new User(++id, "Adam", LocalDate.now().minusYears(30)));
+        users.add(new User(++id, "Eva", LocalDate.now().minusYears(30)));
+        users.add(new User(++id, "Hasith", LocalDate.now().minusYears(23)));
+        users.add(new User(++id, "Malshan", LocalDate.now().minusYears(23)));
     }
 
     public List<User> findAL() {
         return users;
+    }
+
+    public User findById(String id){
+        return users.stream().filter(user -> user.getId()  ==  Integer.parseInt(id)).findFirst().orElse(null);
     }
 
 }
