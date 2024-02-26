@@ -38,4 +38,8 @@ public class UserResource {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userDaoService.deleteById(id);
+    }
 }
