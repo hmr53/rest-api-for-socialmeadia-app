@@ -1,8 +1,13 @@
 package com.hasith.restfulwebservicesforsocialmediaapplication.exception;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hasith.restfulwebservicesforsocialmediaapplication.user.UserNotFoundException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -25,5 +30,11 @@ public class CustomizedResponseEntityExceptionhandler extends ResponseEntityExce
         return new ResponseEntity(errorDetails, HttpStatus.NOT_FOUND);
     }
 
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
 
+        CustomErrorMessageBody customErrorMessage = new CustomErrorMessageBody(ex);
+        ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), customErrorMessage.toString(), request.getDescription(false));
+        return new ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST);
+    }
 }
