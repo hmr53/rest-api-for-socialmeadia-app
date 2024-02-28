@@ -12,3 +12,8 @@ insert into user_details (id, name, birth_day) values (110, 'Erhard Goodee', cur
 insert into user_details (id, name, birth_day) values (120, 'Saba Priel', current_date());
 insert into user_details (id, name, birth_day) values (130, 'Honor Hurry', current_date());
 insert into user_details (id, name, birth_day) values (140, 'Natka Smuth', current_date());
+
+insert into post(id,description,user_id) values(10001,'Learn AWS',100);
+insert into post(id,description,user_id) values(10002,'Learn Springboot',100);
+insert into post(id,description,user_id) values(10003,'Learn Google Cloud',200);
+insert into post(id,description,user_id) values(10004,'Learn Devops',200);
