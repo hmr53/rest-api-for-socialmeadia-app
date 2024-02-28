@@ -2,6 +2,7 @@ package com.hasith.restfulwebservicesforsocialmediaapplication.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Size(min = 2,message = "Name must be more than two Characters")
     private String name;
@@ -26,6 +27,11 @@ public class User {
 
     public User(Integer id, String name, LocalDate birthDay) {
         this.id = id;
+        this.name = name;
+        this.birthDay = birthDay;
+    }
+
+    public User(String name, LocalDate birthDay) {
         this.name = name;
         this.birthDay = birthDay;
     }
