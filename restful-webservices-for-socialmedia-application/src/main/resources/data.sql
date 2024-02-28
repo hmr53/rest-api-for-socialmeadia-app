@@ -1,0 +1,14 @@
+insert into user_details (id, name, birth_day) values (1, 'Freda Fishbourne', current_date());
+insert into user_details (id, name, birth_day) values (2, 'Biddie Folder', current_date());
+insert into user_details (id, name, birth_day) values (3, 'Kizzee Hartzog', current_date());
+insert into user_details (id, name, birth_day) values (4, 'Selig Dewire', current_date());
+insert into user_details (id, name, birth_day) values (5, 'Otes Childes', current_date());
+insert into user_details (id, name, birth_day) values (6, 'Arabela Druce', current_date());
+insert into user_details (id, name, birth_day) values (7, 'Andrei Pellamonuten', current_date());
+insert into user_details (id, name, birth_day) values (8, 'Ariella Campling', current_date());
+insert into user_details (id, name, birth_day) values (9, 'Lib O''Tuohy', current_date());
+insert into user_details (id, name, birth_day) values (10, 'Scot Dahlborg', current_date());
+insert into user_details (id, name, birth_day) values (11, 'Erhard Goodee', current_date());
+insert into user_details (id, name, birth_day) values (12, 'Saba Priel', current_date());
+insert into user_details (id, name, birth_day) values (13, 'Honor Hurry', current_date());
+insert into user_details (id, name, birth_day) values (14, 'Natka Smuth', current_date());
