@@ -11,7 +11,7 @@ public class SomeBean {
 
     private final String value1;
 
-    @JsonIgnore
+//    @JsonIgnore
     private final String value2;
     private final String value3;
 
