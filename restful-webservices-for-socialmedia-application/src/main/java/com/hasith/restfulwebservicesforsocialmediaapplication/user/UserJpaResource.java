@@ -1,5 +1,6 @@
 package com.hasith.restfulwebservicesforsocialmediaapplication.user;
 
+import com.hasith.restfulwebservicesforsocialmediaapplication.post.Post;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,5 +44,11 @@ public class UserJpaResource {
     public void deleteUser(@PathVariable String id) {
         System.out.println("Delete Requested");
         userRepository.deleteById(Integer.parseInt(id));
+    }
+    @GetMapping("/jpa/users/{id}/posts")
+    public List<Post> getPostsForUser(@PathVariable int id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) throw new UserNotFoundException("id : "+id);
+        return user.get().getPosts();
     }
 }
