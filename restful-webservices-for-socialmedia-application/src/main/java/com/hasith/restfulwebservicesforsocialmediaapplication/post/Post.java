@@ -2,17 +2,17 @@ package com.hasith.restfulwebservicesforsocialmediaapplication.post;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hasith.restfulwebservicesforsocialmediaapplication.user.User;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Post {
 
     @Id
+    @GeneratedValue
     private  Integer id;
 
+    @Size(min = 10, message = "Post should have minimum of 10 characters")
     private  String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -41,5 +41,13 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
